@@ -18,7 +18,7 @@ export default class IntroScreen extends React.Component{
                 controls={false}
             />
             <div className="cover">
-                <Link to="/music">
+                <Link to="/study-beat/list">
                     <button type="button" className="button btn btn-primary">Start to listen</button>
                 </Link>
             </div>

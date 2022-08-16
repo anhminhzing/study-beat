@@ -9,13 +9,11 @@ class App extends React.Component{
     return  (
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<IntroScreen></IntroScreen>}></Route>
-          <Route path='/music' element={<MainLayout></MainLayout>}></Route>
+          <Route path='/study-beat' element={<IntroScreen></IntroScreen>}></Route>
+          <Route path='/study-beat/list' element={<MainLayout></MainLayout>}></Route>
         </Routes>
       </BrowserRouter>
     );
-
-   
   }
 }
 
