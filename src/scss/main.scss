@@ -1,0 +1,206 @@
+// variable
+$main-color: #FDBE31;
+
+@font-face {
+    font-family: lovefont;
+    src: url(../font/WORDSOFLOVE.ttf);
+}
+@font-face {
+    font-family: sunfont;
+    src: url(../font/Alittlesunshine.ttf);
+}
+.main{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    scroll-behavior:inherit;
+    .App-header{
+        background-color: $main-color;
+    }
+    .react-player{
+        position: absolute;
+        top: -200px;
+        left: -200px;
+        z-index: -100;
+    }
+    .audioControl{
+        position: absolute;
+        bottom: 20px;
+        left: 80%;
+        transform: translateX(-50%);
+        padding: 20px 20px;
+        background-color: transparent;
+        z-index: 2;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 1s;
+        border: 1px solid $main-color;
+        &:hover{
+            background-color: #FDBE31;
+        }
+        .icon{
+            font-size: 40px;   
+            &.play-icon{
+                margin-right: 20px;
+            }
+            &.mute-icon{
+                margin-right: 5px;
+                font-size: 30px;
+            }
+        }          
+        input[type=range]
+        {
+            writing-mode: bt-lr; /* IE */
+            width: 80px;
+            height: 1px;
+            -webkit-appearance: none;
+            margin-bottom: 10px;
+            margin-left: 0px;
+            background-color: #fff;
+            border-radius: 3px;
+            border: #fff 1px solid;
+        }
+        
+        .volumeDial::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            cursor: pointer;
+            border: 1px solid whitesmoke;
+            border-radius: 50%;
+        }
+          
+    }
+    .invisible{
+        visibility: hidden;
+    }
+    .icon{
+        font-size: 40px;
+        color: white;
+    }
+    .testStatePlay{
+        background-color: red;
+        color: white;
+    }
+
+    .music_container{
+        background-color: transparent;
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 0%;
+        transform: translateY(-50%);
+        padding: 20px;
+        transition: all 1s;
+        border: 1px solid white;
+        .item{
+            cursor: pointer;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            font-family: sunfont;
+        }
+        &:hover{
+            background-color: $main-color;
+            border: 1px solid $main-color;
+            transform: translateY(-50%) scale(1.1);
+            left: 1%;
+        }
+    }
+
+
+    // pause screen
+    .pauseScreen{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: relative;
+        z-index: 1;
+        p{
+            font-family: lovefont;
+            font-size: 50px;
+            font-weight: bolder;
+            color: red;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .name{
+        position: absolute;
+        top: 0;
+        left: 50px;
+        font-size: 80px;
+        font-family: lovefont;
+        color: $main-color;
+        font-weight: bold;
+    }
+
+    // loading heart
+    .loading{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        .lds-heart {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            transform: rotate(45deg);
+            transform-origin: 40px 40px;
+        }
+        .lds-heart div {
+            top: 32px;
+            left: 32px;
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background: red;
+            animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        .lds-heart div:after,
+        .lds-heart div:before {
+        content: " ";
+            position: absolute;
+            display: block;
+            width: 32px;
+            height: 32px;
+            background: red;
+        }
+        .lds-heart div:before {
+            left: -24px;
+            border-radius: 50% 0 0 50%;
+        }
+        .lds-heart div:after {
+            top: -24px;
+            border-radius: 50% 50% 0 0;
+        }
+        @keyframes lds-heart {
+            0% {
+                transform: scale(0.95);
+            }
+            5% {
+                transform: scale(1.1);
+            }
+            39% {
+                transform: scale(0.85);
+            }
+            45% {
+                transform: scale(1);
+            }
+            60% {
+                transform: scale(0.95);
+            }
+            100% {
+                transform: scale(0.9);
+            }
+        }
+      
+   }
+   
+}
