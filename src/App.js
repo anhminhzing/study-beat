@@ -10,7 +10,7 @@ class App extends React.Component{
     return  (
       <BrowserRouter>
         <Routes>
-          <Route path='/playlist-youtube' element={<PlaylistYoutube></PlaylistYoutube>}></Route>
+          <Route path='/study-beat/playlist-youtube' element={<PlaylistYoutube></PlaylistYoutube>}></Route>
           <Route path='/study-beat' element={<IntroScreen></IntroScreen>}></Route>
           <Route path='/study-beat/list' element={<MainLayout></MainLayout>}></Route>
         </Routes>

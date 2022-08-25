@@ -14,6 +14,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+### `npm run deloy`
+
 ### `this project based on study-beat app of adamPatrick12` (https://github.com/adamPatrick12/study-beats-fm)
 using
     1.Reactjs app
