@@ -7,8 +7,7 @@ export default function PlaylistYoutube(){
     const [items, setItems] = useState([]);
     const [pageToken, setPageToken] = useState();
 
-
-    const apikey = "AIzaSyADJobPgS5I7zto67mSnD-3bVKsKJ6YKUI";
+    const apikey = process.env.REACT_APP_API_URL;
     const playListID = "PLd5q8kTiY8vWp-4fRxhHEpWm42QdzbJeb";
     const maxResults =50; // min=5 (default) max=50
 
@@ -16,7 +15,6 @@ export default function PlaylistYoutube(){
     let paramter = `?part=snippet&playlistId=${playListID}&maxResults=${maxResults}&key=${apikey}`;
     let url = `${url_default}${paramter}`
     useEffect(() => {
-        console.log("url: " + url);
         fetch(url)
             .then(res  => res.json())
             .then(
