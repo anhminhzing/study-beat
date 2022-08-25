@@ -22,7 +22,7 @@ export default class IntroScreen extends React.Component{
                     <button type="button" className="button btn btn-primary">Start to listen</button>
                 </Link>
                 <Link to="/study-beat/playlist-youtube">
-                    <button type="button" className="button btn btn-primary">Demo</button>
+                    <button type="button" className="btn btn-primary">Demo</button>
                 </Link>
             </div>
         </div>
