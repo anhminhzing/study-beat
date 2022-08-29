@@ -9,6 +9,7 @@ export default function PlaylistYoutube(){
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState(["1"]);
     const [pageToken, setPageToken] = useState();
+    const [id, setid] = useState();
 
     const apikey = process.env.REACT_APP_API_URL;
     const playListID = "PLd5q8kTiY8vWp-4fRxhHEpWm42QdzbJeb";
@@ -26,7 +27,7 @@ export default function PlaylistYoutube(){
                     setItems(result.items)
                     console.log(result);
                     setPageToken(result.nextPageToken);
-
+                    setid(result.items[0].snippet.resourceId.videoId);
                 },
                 (error)=>{
                     setIsLoaded(true);
@@ -37,7 +38,6 @@ export default function PlaylistYoutube(){
 
 
     const callapi = () => {
-        // console.log(this.nextPageToken);
         let nextUrl = url + `&pageToken=${pageToken}`;
         setIsLoaded(false);
         console.log("next url:" +nextUrl);
@@ -56,6 +56,11 @@ export default function PlaylistYoutube(){
             );
     }
 
+    const changeSong = (id) =>    {
+        console.log("change song 2: " + id);
+        setid(id);
+    }
+
    if(error){
         return <div>Error: {error.message}</div>
    } else if(!isLoaded){
@@ -72,8 +77,8 @@ export default function PlaylistYoutube(){
                     ))}
                 </ul> */}
                 {/* <h1>My playlist</h1> */}
-                <VideoBackground ></VideoBackground>
-                <PlaylistMusic name={"Minh"} list={items}></PlaylistMusic>
+                <VideoBackground id={id} ></VideoBackground>
+                <PlaylistMusic onClick={changeSong} list={items}></PlaylistMusic>
             </div>
         );
    }
