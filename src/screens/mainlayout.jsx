@@ -1,8 +1,8 @@
 import React from "react";
 import ReactPlayer from 'react-player';
-import AudioControl from './audiocontrol';
+import AudioControl from '../components/audiocontrol';
 import PauseScreen from './pauseScreen';
-import Music_container from './music_container';
+import Music_container from '../components/music_container';
 import list_music from "../json/list_music";
 import '../scss/main.scss';
 
@@ -12,7 +12,6 @@ export default class MainLayout extends React.Component{
     state = {
         play: true,
         music:list_music[0],
-
     };
  
     playStateChange = (changeMusic) => {

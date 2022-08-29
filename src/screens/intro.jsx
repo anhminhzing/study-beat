@@ -19,10 +19,12 @@ export default class IntroScreen extends React.Component{
             />
             <div className="cover">
                 <Link to="/study-beat/list">
-                    <button type="button" className="button btn btn-primary">Start to listen</button>
+                    <button type="button" className="button btn btn-primary">
+                        <span>study beat music</span>
+                    </button>
                 </Link>
                 <Link to="/study-beat/playlist-youtube">
-                    <button type="button" className="btn btn-primary">Demo</button>
+                    <button type="button" className="button btn btn-primary">Playlist youtube</button>
                 </Link>
             </div>
         </div>

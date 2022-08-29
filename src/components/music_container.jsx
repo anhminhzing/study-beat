@@ -3,7 +3,6 @@ import React from "react";
 const Music_container = (props)=>{
 
     function handleMusic (item){
-        console.log(item.name)
         props.changeMusic(item);
     }
 

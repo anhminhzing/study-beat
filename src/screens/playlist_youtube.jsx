@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import VideoBackground from "../components/youtube_playlist/video_background";
+import PlaylistMusic from "../components/youtube_playlist/list_music";
+import "../scss/main.scss";
 
 export default function PlaylistYoutube(){
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState(["1"]);
     const [pageToken, setPageToken] = useState();
 
     const apikey = process.env.REACT_APP_API_URL;
@@ -59,16 +62,18 @@ export default function PlaylistYoutube(){
         return <div>Loading...</div>
    } else{
         return (
-            <div className="myPlaylist">
-                <button className="btn btn-primary" onClick={callapi}>click to call again</button>
-                <h1>My playlist</h1>
+            <div className="main">
+                {/* <button className="btn btn-primary" onClick={callapi}>click to call again</button>
                 <ul className="list">
                     {items.map(item => (
                         <li key={item.id}>
                             {item.snippet.title}
                         </li>
                     ))}
-                </ul>
+                </ul> */}
+                {/* <h1>My playlist</h1> */}
+                <VideoBackground ></VideoBackground>
+                <PlaylistMusic name={"Minh"} list={items}></PlaylistMusic>
             </div>
         );
    }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import IntroScreen from './components/intro';
-import MainLayout from './components/mainlayout';
-import PlaylistYoutube from './components/playlist_youtube';
+import IntroScreen from './screens/intro';
+import MainLayout from './screens/mainlayout';
+import PlaylistYoutube from './screens/playlist_youtube';
 
 
 class App extends React.Component{
@@ -10,9 +10,9 @@ class App extends React.Component{
     return  (
       <BrowserRouter>
         <Routes>
-          <Route path='/study-beat/playlist-youtube' element={<PlaylistYoutube></PlaylistYoutube>}></Route>
           <Route path='/study-beat' element={<IntroScreen></IntroScreen>}></Route>
           <Route path='/study-beat/list' element={<MainLayout></MainLayout>}></Route>
+          <Route path='/study-beat/playlist-youtube' element={<PlaylistYoutube></PlaylistYoutube>}></Route>
         </Routes>
       </BrowserRouter>
     );
