@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import VideoBackground from "../components/youtube_playlist/video_background";
 import PlaylistMusic from "../components/youtube_playlist/list_music";
+import AudioControlYoutube from "../components/youtube_playlist/audio_control_youtube";
+import PauseScreen from "./pauseScreen";
 import "../scss/main.scss";
 
 export default function PlaylistYoutube(){
@@ -10,7 +12,8 @@ export default function PlaylistYoutube(){
     const [items, setItems] = useState(["1"]);
     const [pageToken, setPageToken] = useState();
     const [id, setid] = useState();
-
+    const [playState, setPlayState] = useState(true);
+    const [volume, setVolume]= useState(0);
     const apikey = process.env.REACT_APP_API_URL;
     const playListID = "PLd5q8kTiY8vWp-4fRxhHEpWm42QdzbJeb";
     const maxResults =50; // min=5 (default) max=50
@@ -61,6 +64,19 @@ export default function PlaylistYoutube(){
         setid(id);
     }
 
+    const changePlayState = () => {
+        if(playState == true){
+            setPlayState(false);
+        }else{
+            setPlayState(true);
+        }
+    }
+
+    const changeVolume = (number) => {
+        setVolume(number);
+        console.log(number)
+    }
+
    if(error){
         return <div>Error: {error.message}</div>
    } else if(!isLoaded){
@@ -68,17 +84,15 @@ export default function PlaylistYoutube(){
    } else{
         return (
             <div className="main">
-                {/* <button className="btn btn-primary" onClick={callapi}>click to call again</button>
-                <ul className="list">
-                    {items.map(item => (
-                        <li key={item.id}>
-                            {item.snippet.title}
-                        </li>
-                    ))}
-                </ul> */}
-                {/* <h1>My playlist</h1> */}
-                <VideoBackground id={id} ></VideoBackground>
+                {playState == false ? <PauseScreen></PauseScreen> : ""}
+                <VideoBackground id={id} playState={playState} volume={volume}></VideoBackground>
                 <PlaylistMusic onClick={changeSong} list={items}></PlaylistMusic>
+                <AudioControlYoutube  
+                    changePlay={changePlayState} 
+                    playState={playState}
+                    volume={volume}
+                    changeVolume={changeVolume}
+                ></AudioControlYoutube>
             </div>
         );
    }

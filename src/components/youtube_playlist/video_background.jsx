@@ -8,13 +8,14 @@ export default function VideoBackground(props){
             <ReactPlayer 
                 className="react-player"
                 url= {url}
-                playing={true}
+                playing={props.playState}
                 loop={true}
-                muted={true}
+                muted={false}
                 width='130%'
                 height='130%'
                 controls={false}
+                volume={props.volume}
             />
         </div>
-    );
+    );  
 }
