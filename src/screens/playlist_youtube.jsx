@@ -21,6 +21,8 @@ export default function PlaylistYoutube(){
     const url_default = "https://www.googleapis.com/youtube/v3/playlistItems";
     let paramter = `?part=snippet&playlistId=${playListID}&maxResults=${maxResults}&key=${apikey}`;
     let url = `${url_default}${paramter}`
+
+
     useEffect(() => {
         fetch(url)
             .then(res  => res.json())
@@ -60,8 +62,8 @@ export default function PlaylistYoutube(){
     }
 
     const changeSong = (id) =>    {
-        console.log("change song 2: " + id);
         setid(id);
+
     }
 
     const changePlayState = () => {

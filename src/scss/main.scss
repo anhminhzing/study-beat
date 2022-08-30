@@ -27,7 +27,7 @@ $main-color: #FDBE31;
     .audioControl{
         position: absolute;
         bottom: 20px;
-        left: 80%;
+        left: 50%;
         transform: translateX(-50%);
         padding: 20px 20px;
         background-color: transparent;
@@ -40,12 +40,20 @@ $main-color: #FDBE31;
             background-color: #FDBE31;
         }
         .icon{
-            font-size: 40px;   
+            font-size: 40px;
+            cursor: pointer;   
             &.play-icon{
-                margin-right: 20px;
+                margin-right: 0px;
             }
             &.mute-icon{
                 margin-right: 5px;
+                font-size: 30px;
+            }
+            &.nextIcon{
+                margin-right: 20px;
+                font-size: 30px;
+            }
+            &.preIcon{
                 font-size: 30px;
             }
         }          
@@ -133,6 +141,12 @@ $main-color: #FDBE31;
             overflow: hidden;
             text-overflow: clip;
             white-space: nowrap;
+            transition: all 0.3s;
+            &.selected{
+                color: red;
+                font-weight: bold;
+                font-size: 20px;
+            }
         }
         &:hover{
             background-color: $main-color;
