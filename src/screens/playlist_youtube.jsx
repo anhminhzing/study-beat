@@ -61,8 +61,16 @@ export default function PlaylistYoutube(){
             );
     }
 
-    const changeSong = (id) =>    {
+    const changeSong = (id, element) =>    {
         setid(id);
+        Array.from(document.getElementsByClassName("item")).forEach((ele) => {
+            ele.classList.remove("selected");
+        });
+        if(!element.contains("selected")){
+            element.add("selected");
+        }else{
+            element.remove("selected");
+        }
 
     }
 
@@ -94,6 +102,7 @@ export default function PlaylistYoutube(){
                     playState={playState}
                     volume={volume}
                     changeVolume={changeVolume}
+                    changeSong={changeSong}
                 ></AudioControlYoutube>
             </div>
         );

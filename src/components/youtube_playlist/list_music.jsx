@@ -4,16 +4,7 @@ import '../../scss/youtube_playlist/youtube.scss'
 export default function PlaylistMusic(props){
     
     const changeSong = (item, event) => {
-        props.onClick(item.snippet.resourceId.videoId);
-        let element = event.target.classList;
-        Array.from(document.getElementsByClassName("item")).forEach((ele) => {
-            ele.classList.remove("selected");
-        });
-        if(!element.contains("selected")){
-            element.add("selected");
-        }else{
-            element.remove("selected");
-        }
+        props.onClick(item.snippet.resourceId.videoId, event.target.classList);
     }
     return(
         <div className="music_container">

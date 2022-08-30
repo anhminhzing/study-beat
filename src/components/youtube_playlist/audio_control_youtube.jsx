@@ -31,7 +31,7 @@ export default class AudioControlYoutube extends React.Component{
     skipSong = () => {
         let el = document.getElementsByClassName('selected')[0].nextElementSibling;
         if(typeof(el) != 'undefined' && el != null){
-            console.log(el.getAttribute("data-id"));
+            this.props.changeSong(el.getAttribute("data-id"), el.classList)
         }
        
     }
@@ -39,7 +39,7 @@ export default class AudioControlYoutube extends React.Component{
     prevSong = () => {
         let el = document.getElementsByClassName('selected')[0].previousElementSibling;
         if(typeof(el) != 'undefined' && el != null){
-            console.log(el.getAttribute("data-id"));
+            this.props.changeSong(el.getAttribute("data-id"), el.classList)
         }
     }
 
